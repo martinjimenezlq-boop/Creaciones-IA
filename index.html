@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El Rosco de la Tierra Media</title>
+<meta name="description" content="Pasapalabra experto sobre las películas de la Tierra Media.">
+<link rel="icon" href="img/runa.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="runes top" aria-hidden="true">ᚠᚢᚦᚨᚱᚲᚷᚹᚺᚾᛁᛃᛇᛈᛉᛊᛏᛒᛖᛗᛚᛜᛞᛟ</div>
+<div class="runes bottom" aria-hidden="true">ᛟᛞᛜᛚᛗᛖᛒᛏᛊᛉᛈᛇᛃᛁᚾᚺᚹᚷᚲᚱᚨᚦᚢᚠ</div>
+<main>
+  <section id="intro" class="screen intro">
+    <img src="img/runa.svg" alt="" class="emblem">
+    <p class="kicker">✦ PASAPALABRA ✦</p>
+    <h1 class="gold">El Rosco de la Tierra Media</h1>
+    <p class="subtitle">Solo los verdaderos conocedores de Tolkien llegarán al final</p>
+    <div class="parchment rules">
+      <h2>Las reglas del rosco</h2>
+      <ul>
+        <li>✦ 27 letras, de la A a la Z con la Ñ. Cada una esconde una pregunta de las seis películas.</li>
+        <li>✦ Tienes <strong>180 segundos</strong>. Cada acierto suma 1 punto; un fallo, 0.</li>
+        <li>✦ <em>Pasapalabra</em> salta la letra para volver después. Acertar, fallar o rendirse la cierra.</li>
+        <li>✦ Las tildes y los artículos no importan.</li>
+      </ul>
+    </div>
+    <button class="btn btn-gold big" id="startBtn">COMENZAR PARTIDA</button>
+  </section>
+
+  <section id="play" class="screen play hidden">
+    <div class="rosco" id="rosco">
+      <div class="ring r1"></div><div class="ring r2 flicker"></div>
+      <div class="center parchment">
+        <span class="label">TIEMPO</span>
+        <span class="time gold" id="time">180</span>
+        <div class="counts"><span class="c-ok" id="cOk">✓ 0</span><span class="c-fail" id="cFail">✗ 0</span><span class="c-pend" id="cPend">◌ 27</span></div>
+      </div>
+    </div>
+    <div class="parchment panel">
+      <div class="panel-head"><div class="letter badge" data-state="current" id="qLetter">A</div><p class="mode" id="qMode">EMPIEZA POR A</p></div>
+      <p class="question" id="qText"></p>
+      <form id="form">
+        <input id="answer" autocomplete="off" placeholder="Escribe tu respuesta…">
+        <div class="actions">
+          <button type="submit" class="btn btn-ok">RESPONDER</button>
+          <button type="button" class="btn btn-gold" id="passBtn">PASAPALABRA</button>
+          <button type="button" class="btn btn-fail" id="giveBtn">RENDIRSE</button>
+        </div>
+      </form>
+      <p class="flash" id="flash"></p>
+      <p class="hint">Pulsa cualquier letra gris para volver a ella.</p>
+    </div>
+  </section>
+
+  <section id="end" class="screen end hidden">
+    <p class="kicker">FIN DEL ROSCO</p>
+    <p class="score gold"><span id="score">0</span><small>/27</small></p>
+    <h2 class="rank" id="rank"></h2>
+    <p class="msg" id="msg"></p>
+    <div class="stats">
+      <div class="parchment"><b class="c-ok" id="sOk"></b><span>ACIERTOS</span></div>
+      <div class="parchment"><b class="c-fail" id="sFail"></b><span>ERRORES</span></div>
+      <div class="parchment"><b class="c-pend" id="sPend"></b><span>SIN RESPONDER</span></div>
+      <div class="parchment"><b class="c-gold" id="sTime"></b><span>TIEMPO</span></div>
+    </div>
+    <button class="btn btn-gold big" id="againBtn">VOLVER A JUGAR</button>
+    <div class="parchment solutions"><h3>Soluciones</h3><ul id="solutions"></ul></div>
+  </section>
+</main>
+<script src="questions.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
